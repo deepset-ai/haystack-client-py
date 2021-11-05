@@ -1,40 +1,37 @@
-
-#########################
-# Raw open api client
-#########################
-
-
-import openapi_client as client
-from pprint import pprint
-from openapi_client.api import search_api
-from openapi_client.model.query_request import QueryRequest
-
-configuration = client.Configuration(
-    host="http://localhost:8000"
-)
-with client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = search_api.SearchApi(api_client)
-
-    # do requests
-    request = QueryRequest(query="Who is the father of Arya Stark?")
-    api_response = api_instance.query_query_post(request)
-    pprint(api_response)
-
 #################################
-# Simpler Haystack client
+# Simple Haystack client
 #################################
 
-from haystack_client import Client
+from haystack_client import HaystackClient, HaystackHubClient
 
-client = Client(host="http://localhost:8000", deployment_type="haystack")
+client = HaystackClient(host="http://localhost:8000")
+# client = HaystackHubClient(user="some_user", password="some_pass")
 
-client.get_documents()
+# get docs
+docs = client.get_documents()
+# print results
+for d in docs[:2]:
+    print(d.content)
 
-client.search(query="Who is the father of Arya Stark?")
+# trigger a query
+answers = client.search(query="Who is the father of Arya Stark?", params={})
+print(answers)
 
-# client.upload_file()
+# Returns:
+# {'answers': [{'answer': 'Ned',
+#               'context': '\n'
+#                          '====Season 1====\n'
+#                          'Arya accompanies her father Ned and her sister Sansa '
+#                          "to King's Landing. Before their departure, Arya's "
+#                          'half-brother Jon Snow gifts A',
+#               'document_id': '180c2a6b36369712b361a80842e79356',
+#               'meta': {'name': '43_Arya_Stark.txt'},
+#               'offsets_in_context': [{'end': 49, 'start': 46}],
+#               'offsets_in_document': [{'end': 49, 'start': 46}],
+#               'score': 0.9767240881919861,
+#               'type': 'extractive'},
+# ...
+
+#client.upload_file()
 
 # client.delete_file()
-
-# client.get_documents()

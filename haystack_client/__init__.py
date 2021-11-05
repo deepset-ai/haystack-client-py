@@ -1,1 +1,1 @@
-from haystack_client.client import Client
+from haystack_client.client import HaystackClient, HaystackHubClient
