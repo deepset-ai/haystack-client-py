@@ -643,7 +643,7 @@ class Endpoint(object):
                     paths to their validation dictionaries
                 'allowed_values' (dict): the dict mapping endpoint parameter
                     tuple paths to their allowed_values (enum) dictionaries
-                'openapi_types' (dict): param_name to client type
+                'openapi_types' (dict): param_name to openapi type
                 'attribute_map' (dict): param_name to camelCase name
                 'location_map' (dict): param_name to  'body', 'file', 'form',
                     'header', 'path', 'query'
@@ -762,10 +762,10 @@ class Endpoint(object):
         Example:
 
         api_instance = DocumentApi()
-        api_instance.delete_documents_by_filter_documents_delete_by_filters_post  # this is an instance of the class Endpoint
-        api_instance.delete_documents_by_filter_documents_delete_by_filters_post()  # this invokes api_instance.delete_documents_by_filter_documents_delete_by_filters_post.__call__()
+        api_instance.delete_documents  # this is an instance of the class Endpoint
+        api_instance.delete_documents()  # this invokes api_instance.delete_documents.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.delete_documents_by_filter_documents_delete_by_filters_post.callable or self.callable in this class
+        api_instance.delete_documents.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

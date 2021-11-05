@@ -23,15 +23,15 @@ class TestDocumentApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_delete_documents_by_filter_documents_delete_by_filters_post(self):
-        """Test case for delete_documents_by_filter_documents_delete_by_filters_post
+    def test_delete_documents(self):
+        """Test case for delete_documents
 
         Delete Documents By Filter  # noqa: E501
         """
         pass
 
-    def test_get_documents_by_filter_documents_get_by_filters_post(self):
-        """Test case for get_documents_by_filter_documents_get_by_filters_post
+    def test_get_documents(self):
+        """Test case for get_documents
 
         Get Documents By Filter  # noqa: E501
         """

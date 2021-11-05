@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**file_upload_file_upload_post**](FileUploadApi.md#file_upload_file_upload_post) | **POST** /file-upload | File Upload
+[**upload_file**](FileUploadApi.md#upload_file) | **POST** /file-upload | File Upload
 
 
-# **file_upload_file_upload_post**
-> bool, date, datetime, dict, float, int, list, str, none_type file_upload_file_upload_post(files)
+# **upload_file**
+> bool, date, datetime, dict, float, int, list, str, none_type upload_file(files)
 
 File Upload
 
@@ -49,19 +49,19 @@ with openapi_client.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # File Upload
-        api_response = api_instance.file_upload_file_upload_post(files)
+        api_response = api_instance.upload_file(files)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling FileUploadApi->file_upload_file_upload_post: %s\n" % e)
+        print("Exception when calling FileUploadApi->upload_file: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # File Upload
-        api_response = api_instance.file_upload_file_upload_post(files, meta=meta, remove_numeric_tables=remove_numeric_tables, valid_languages=valid_languages, clean_whitespace=clean_whitespace, clean_empty_lines=clean_empty_lines, clean_header_footer=clean_header_footer, split_by=split_by, split_length=split_length, split_overlap=split_overlap, split_respect_sentence_boundary=split_respect_sentence_boundary)
+        api_response = api_instance.upload_file(files, meta=meta, remove_numeric_tables=remove_numeric_tables, valid_languages=valid_languages, clean_whitespace=clean_whitespace, clean_empty_lines=clean_empty_lines, clean_header_footer=clean_header_footer, split_by=split_by, split_length=split_length, split_overlap=split_overlap, split_respect_sentence_boundary=split_respect_sentence_boundary)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling FileUploadApi->file_upload_file_upload_post: %s\n" % e)
+        print("Exception when calling FileUploadApi->upload_file: %s\n" % e)
 ```
 
 

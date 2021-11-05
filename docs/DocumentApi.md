@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_documents_by_filter_documents_delete_by_filters_post**](DocumentApi.md#delete_documents_by_filter_documents_delete_by_filters_post) | **POST** /documents/delete_by_filters | Delete Documents By Filter
-[**get_documents_by_filter_documents_get_by_filters_post**](DocumentApi.md#get_documents_by_filter_documents_get_by_filters_post) | **POST** /documents/get_by_filters | Get Documents By Filter
+[**delete_documents**](DocumentApi.md#delete_documents) | **POST** /documents/delete_by_filters | Delete Documents By Filter
+[**get_documents**](DocumentApi.md#get_documents) | **POST** /documents/get_by_filters | Get Documents By Filter
 
 
-# **delete_documents_by_filter_documents_delete_by_filters_post**
-> bool delete_documents_by_filter_documents_delete_by_filters_post(filter_request)
+# **delete_documents**
+> bool delete_documents(filter_request)
 
 Delete Documents By Filter
 
@@ -45,10 +45,10 @@ with openapi_client.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete Documents By Filter
-        api_response = api_instance.delete_documents_by_filter_documents_delete_by_filters_post(filter_request)
+        api_response = api_instance.delete_documents(filter_request)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling DocumentApi->delete_documents_by_filter_documents_delete_by_filters_post: %s\n" % e)
+        print("Exception when calling DocumentApi->delete_documents: %s\n" % e)
 ```
 
 
@@ -81,8 +81,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_documents_by_filter_documents_get_by_filters_post**
-> [DocumentSerialized] get_documents_by_filter_documents_get_by_filters_post(filter_request)
+# **get_documents**
+> [DocumentSerialized] get_documents(filter_request)
 
 Get Documents By Filter
 
@@ -119,10 +119,10 @@ with openapi_client.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get Documents By Filter
-        api_response = api_instance.get_documents_by_filter_documents_get_by_filters_post(filter_request)
+        api_response = api_instance.get_documents(filter_request)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling DocumentApi->get_documents_by_filter_documents_get_by_filters_post: %s\n" % e)
+        print("Exception when calling DocumentApi->get_documents: %s\n" % e)
 ```
 
 

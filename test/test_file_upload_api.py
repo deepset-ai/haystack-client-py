@@ -23,8 +23,8 @@ class TestFileUploadApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_file_upload_file_upload_post(self):
-        """Test case for file_upload_file_upload_post
+    def test_upload_file(self):
+        """Test case for upload_file
 
         File Upload  # noqa: E501
         """
