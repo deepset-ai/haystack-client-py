@@ -35,12 +35,12 @@ class FileUploadApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.file_upload_file_upload_post_endpoint = _Endpoint(
+        self.upload_file_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [],
                 'endpoint_path': '/file-upload',
-                'operation_id': 'file_upload_file_upload_post',
+                'operation_id': 'upload_file',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -147,7 +147,7 @@ class FileUploadApi(object):
             api_client=api_client
         )
 
-    def file_upload_file_upload_post(
+    def upload_file(
         self,
         files,
         **kwargs
@@ -157,7 +157,7 @@ class FileUploadApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.file_upload_file_upload_post(files, async_req=True)
+        >>> thread = api.upload_file(files, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -220,5 +220,5 @@ class FileUploadApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['files'] = \
             files
-        return self.file_upload_file_upload_post_endpoint.call_with_http_info(**kwargs)
+        return self.upload_file_endpoint.call_with_http_info(**kwargs)
 

@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**initialized_initialized_get**](SearchApi.md#initialized_initialized_get) | **GET** /initialized | Initialized
-[**query_query_post**](SearchApi.md#query_query_post) | **POST** /query | Query
+[**check_status**](SearchApi.md#check_status) | **GET** /initialized | Initialized
+[**query**](SearchApi.md#query) | **POST** /query | Query
 
 
-# **initialized_initialized_get**
-> bool, date, datetime, dict, float, int, list, str, none_type initialized_initialized_get()
+# **check_status**
+> bool, date, datetime, dict, float, int, list, str, none_type check_status()
 
 Initialized
 
@@ -38,10 +38,10 @@ with openapi_client.ApiClient() as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Initialized
-        api_response = api_instance.initialized_initialized_get()
+        api_response = api_instance.check_status()
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling SearchApi->initialized_initialized_get: %s\n" % e)
+        print("Exception when calling SearchApi->check_status: %s\n" % e)
 ```
 
 
@@ -70,8 +70,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **query_query_post**
-> QueryResponse query_query_post(query_request)
+# **query**
+> QueryResponse query(query_request)
 
 Query
 
@@ -105,10 +105,10 @@ with openapi_client.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Query
-        api_response = api_instance.query_query_post(query_request)
+        api_response = api_instance.query(query_request)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling SearchApi->query_query_post: %s\n" % e)
+        print("Exception when calling SearchApi->query: %s\n" % e)
 ```
 
 

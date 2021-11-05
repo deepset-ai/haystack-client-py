@@ -37,60 +37,12 @@ class FeedbackApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.eval_extractive_qa_feedback_eval_feedback_post_endpoint = _Endpoint(
-            settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
-                'auth': [],
-                'endpoint_path': '/eval-feedback',
-                'operation_id': 'eval_extractive_qa_feedback_eval_feedback_post',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'filter_request',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'filter_request':
-                        (FilterRequest,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'filter_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.export_extractive_qa_feedback_export_feedback_get_endpoint = _Endpoint(
+        self.export_feedback_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [],
                 'endpoint_path': '/export-feedback',
-                'operation_id': 'export_extractive_qa_feedback_export_feedback_get',
+                'operation_id': 'export_feedback',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -142,12 +94,12 @@ class FeedbackApi(object):
             },
             api_client=api_client
         )
-        self.user_feedback_feedback_get_endpoint = _Endpoint(
+        self.get_feedback_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [],
                 'endpoint_path': '/feedback',
-                'operation_id': 'user_feedback_feedback_get',
+                'operation_id': 'get_feedback',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -184,12 +136,60 @@ class FeedbackApi(object):
             },
             api_client=api_client
         )
-        self.user_feedback_feedback_post_endpoint = _Endpoint(
+        self.get_feedback_metrics_endpoint = _Endpoint(
+            settings={
+                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
+                'auth': [],
+                'endpoint_path': '/eval-feedback',
+                'operation_id': 'get_feedback_metrics',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'filter_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'filter_request':
+                        (FilterRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'filter_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.post_feedback_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [],
                 'endpoint_path': '/feedback',
-                'operation_id': 'user_feedback_feedback_post',
+                'operation_id': 'post_feedback',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -235,69 +235,7 @@ class FeedbackApi(object):
             api_client=api_client
         )
 
-    def eval_extractive_qa_feedback_eval_feedback_post(
-        self,
-        **kwargs
-    ):
-        """Eval Extractive Qa Feedback  # noqa: E501
-
-        Return basic accuracy metrics based on the user feedback. Which ratio of answers was correct? Which ratio of documents was correct? You can supply filters in the request to only use a certain subset of labels.  **Example:**      ```         | curl --location --request POST 'http://127.0.0.1:8000/eval-doc-qa-feedback'             | --header 'Content-Type: application/json'             | --data-raw '{ \"filters\": {\"document_id\": [\"XRR3xnEBCYVTkbTystOB\"]} }'  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.eval_extractive_qa_feedback_eval_feedback_post(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            filter_request (FilterRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            bool, date, datetime, dict, float, int, list, str, none_type
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.eval_extractive_qa_feedback_eval_feedback_post_endpoint.call_with_http_info(**kwargs)
-
-    def export_extractive_qa_feedback_export_feedback_get(
+    def export_feedback(
         self,
         **kwargs
     ):
@@ -307,7 +245,7 @@ class FeedbackApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.export_extractive_qa_feedback_export_feedback_get(async_req=True)
+        >>> thread = api.export_feedback(async_req=True)
         >>> result = thread.get()
 
 
@@ -359,9 +297,9 @@ class FeedbackApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.export_extractive_qa_feedback_export_feedback_get_endpoint.call_with_http_info(**kwargs)
+        return self.export_feedback_endpoint.call_with_http_info(**kwargs)
 
-    def user_feedback_feedback_get(
+    def get_feedback(
         self,
         **kwargs
     ):
@@ -370,7 +308,7 @@ class FeedbackApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.user_feedback_feedback_get(async_req=True)
+        >>> thread = api.get_feedback(async_req=True)
         >>> result = thread.get()
 
 
@@ -419,9 +357,71 @@ class FeedbackApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.user_feedback_feedback_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_feedback_endpoint.call_with_http_info(**kwargs)
 
-    def user_feedback_feedback_post(
+    def get_feedback_metrics(
+        self,
+        **kwargs
+    ):
+        """Eval Extractive Qa Feedback  # noqa: E501
+
+        Return basic accuracy metrics based on the user feedback. Which ratio of answers was correct? Which ratio of documents was correct? You can supply filters in the request to only use a certain subset of labels.  **Example:**      ```         | curl --location --request POST 'http://127.0.0.1:8000/eval-doc-qa-feedback'             | --header 'Content-Type: application/json'             | --data-raw '{ \"filters\": {\"document_id\": [\"XRR3xnEBCYVTkbTystOB\"]} }'  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_feedback_metrics(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            filter_request (FilterRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            bool, date, datetime, dict, float, int, list, str, none_type
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_feedback_metrics_endpoint.call_with_http_info(**kwargs)
+
+    def post_feedback(
         self,
         label_serialized,
         **kwargs
@@ -431,7 +431,7 @@ class FeedbackApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.user_feedback_feedback_post(label_serialized, async_req=True)
+        >>> thread = api.post_feedback(label_serialized, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -484,5 +484,5 @@ class FeedbackApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['label_serialized'] = \
             label_serialized
-        return self.user_feedback_feedback_post_endpoint.call_with_http_info(**kwargs)
+        return self.post_feedback_endpoint.call_with_http_info(**kwargs)
 

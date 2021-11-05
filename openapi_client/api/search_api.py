@@ -37,12 +37,12 @@ class SearchApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.initialized_initialized_get_endpoint = _Endpoint(
+        self.check_status_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [],
                 'endpoint_path': '/initialized',
-                'operation_id': 'initialized_initialized_get',
+                'operation_id': 'check_status',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -79,12 +79,12 @@ class SearchApi(object):
             },
             api_client=api_client
         )
-        self.query_query_post_endpoint = _Endpoint(
+        self.query_endpoint = _Endpoint(
             settings={
                 'response_type': (QueryResponse,),
                 'auth': [],
                 'endpoint_path': '/query',
-                'operation_id': 'query_query_post',
+                'operation_id': 'query',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -130,7 +130,7 @@ class SearchApi(object):
             api_client=api_client
         )
 
-    def initialized_initialized_get(
+    def check_status(
         self,
         **kwargs
     ):
@@ -140,7 +140,7 @@ class SearchApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.initialized_initialized_get(async_req=True)
+        >>> thread = api.check_status(async_req=True)
         >>> result = thread.get()
 
 
@@ -189,9 +189,9 @@ class SearchApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.initialized_initialized_get_endpoint.call_with_http_info(**kwargs)
+        return self.check_status_endpoint.call_with_http_info(**kwargs)
 
-    def query_query_post(
+    def query(
         self,
         query_request,
         **kwargs
@@ -201,7 +201,7 @@ class SearchApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.query_query_post(query_request, async_req=True)
+        >>> thread = api.query(query_request, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -254,5 +254,5 @@ class SearchApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['query_request'] = \
             query_request
-        return self.query_query_post_endpoint.call_with_http_info(**kwargs)
+        return self.query_endpoint.call_with_http_info(**kwargs)
 

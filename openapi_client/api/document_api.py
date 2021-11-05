@@ -37,12 +37,12 @@ class DocumentApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.delete_documents_by_filter_documents_delete_by_filters_post_endpoint = _Endpoint(
+        self.delete_documents_endpoint = _Endpoint(
             settings={
                 'response_type': (bool,),
                 'auth': [],
                 'endpoint_path': '/documents/delete_by_filters',
-                'operation_id': 'delete_documents_by_filter_documents_delete_by_filters_post',
+                'operation_id': 'delete_documents',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -87,12 +87,12 @@ class DocumentApi(object):
             },
             api_client=api_client
         )
-        self.get_documents_by_filter_documents_get_by_filters_post_endpoint = _Endpoint(
+        self.get_documents_endpoint = _Endpoint(
             settings={
                 'response_type': ([DocumentSerialized],),
                 'auth': [],
                 'endpoint_path': '/documents/get_by_filters',
-                'operation_id': 'get_documents_by_filter_documents_get_by_filters_post',
+                'operation_id': 'get_documents',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -138,7 +138,7 @@ class DocumentApi(object):
             api_client=api_client
         )
 
-    def delete_documents_by_filter_documents_delete_by_filters_post(
+    def delete_documents(
         self,
         filter_request,
         **kwargs
@@ -149,7 +149,7 @@ class DocumentApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_documents_by_filter_documents_delete_by_filters_post(filter_request, async_req=True)
+        >>> thread = api.delete_documents(filter_request, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -202,9 +202,9 @@ class DocumentApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['filter_request'] = \
             filter_request
-        return self.delete_documents_by_filter_documents_delete_by_filters_post_endpoint.call_with_http_info(**kwargs)
+        return self.delete_documents_endpoint.call_with_http_info(**kwargs)
 
-    def get_documents_by_filter_documents_get_by_filters_post(
+    def get_documents(
         self,
         filter_request,
         **kwargs
@@ -215,7 +215,7 @@ class DocumentApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_documents_by_filter_documents_get_by_filters_post(filter_request, async_req=True)
+        >>> thread = api.get_documents(filter_request, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -268,5 +268,5 @@ class DocumentApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['filter_request'] = \
             filter_request
-        return self.get_documents_by_filter_documents_get_by_filters_post_endpoint.call_with_http_info(**kwargs)
+        return self.get_documents_endpoint.call_with_http_info(**kwargs)
 

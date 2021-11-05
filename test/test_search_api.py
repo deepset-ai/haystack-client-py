@@ -23,15 +23,15 @@ class TestSearchApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_initialized_initialized_get(self):
-        """Test case for initialized_initialized_get
+    def test_check_status(self):
+        """Test case for check_status
 
         Initialized  # noqa: E501
         """
         pass
 
-    def test_query_query_post(self):
-        """Test case for query_query_post
+    def test_query(self):
+        """Test case for query
 
         Query  # noqa: E501
         """

@@ -23,29 +23,29 @@ class TestFeedbackApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_eval_extractive_qa_feedback_eval_feedback_post(self):
-        """Test case for eval_extractive_qa_feedback_eval_feedback_post
-
-        Eval Extractive Qa Feedback  # noqa: E501
-        """
-        pass
-
-    def test_export_extractive_qa_feedback_export_feedback_get(self):
-        """Test case for export_extractive_qa_feedback_export_feedback_get
+    def test_export_feedback(self):
+        """Test case for export_feedback
 
         Export Extractive Qa Feedback  # noqa: E501
         """
         pass
 
-    def test_user_feedback_feedback_get(self):
-        """Test case for user_feedback_feedback_get
+    def test_get_feedback(self):
+        """Test case for get_feedback
 
         User Feedback  # noqa: E501
         """
         pass
 
-    def test_user_feedback_feedback_post(self):
-        """Test case for user_feedback_feedback_post
+    def test_get_feedback_metrics(self):
+        """Test case for get_feedback_metrics
+
+        Eval Extractive Qa Feedback  # noqa: E501
+        """
+        pass
+
+    def test_post_feedback(self):
+        """Test case for post_feedback
 
         User Feedback  # noqa: E501
         """
